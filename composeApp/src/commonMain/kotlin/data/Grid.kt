@@ -1,3 +1,3 @@
 package data
 
-data class Grid(val gridTiles: MutableList<GridTile>)
+data class Grid(val gridTiles: MutableList<MutableList<Tile>>)

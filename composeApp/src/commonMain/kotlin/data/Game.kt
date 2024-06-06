@@ -25,16 +25,13 @@ class Game(val gridSize: Int, val tileSize: Dp) {
         grid.gridTiles.clear()
         totalScore = 0L
 
-        for (row in 1..gridSize) {
-            for (column in 1..gridSize) {
-                val randomStartNumber = startNumbers[Random.nextInt(startNumbers.size)]
-                grid.gridTiles.add(
-                    GridTile(
-                        cell = Cell(row, column),
-                        tile = Tile(randomStartNumber)
-                    )
-                )
+        for (column in 1..gridSize) {
+            val rowTiles = mutableStateListOf<Tile>()
+            for (row in 1..gridSize) {
+                val randomStartNumber = startNumbers.random()
+                rowTiles.add(Tile(randomStartNumber))
             }
+            grid.gridTiles.add(rowTiles)
         }
 
         gameState = GameState.RUNNING

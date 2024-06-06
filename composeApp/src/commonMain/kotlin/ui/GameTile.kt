@@ -3,6 +3,7 @@ package ui
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -10,23 +11,30 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import data.Tile
 
 @Composable
 fun GameTile(
     tile: Tile,
-    tileSize: Dp
+    modifier: Modifier
 ) {
     Card(
         shape = RoundedCornerShape(5),
         backgroundColor = getTileColor(tile.num, isSystemInDarkTheme()),
-        modifier = Modifier.size(tileSize)
+        modifier = modifier
+//            .fillMaxSize()
+//            .padding(vertical = 10.dp)
+//            .clip(RoundedCornerShape(topStart = 10.dp, topEnd = 10.dp))
+//            .background(Color.Red)
+//            .padding(horizontal = 25.dp, vertical = 15.dp)
     ) {
         Box(
             contentAlignment = Alignment.Center,
-            modifier = Modifier.fillMaxSize()
+//            modifier = Modifier.fillMaxSize()
         ) {
             if (tile.num > 0) Text(tile.num.toString())
         }

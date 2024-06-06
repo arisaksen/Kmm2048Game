@@ -2,8 +2,10 @@ package previews
 
 import DarkColorPalette
 import LightColorPalette
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import data.Tile
@@ -15,7 +17,7 @@ fun Tile0Dark() {
     MaterialTheme(colors = DarkColorPalette) {
         GameTile(
             tile = Tile(0),
-            tileSize = 100.dp
+            modifier = Modifier.size(100.dp),
         )
     }
 }
@@ -26,7 +28,7 @@ fun Tile0Light() {
     MaterialTheme(colors = LightColorPalette) {
         GameTile(
             tile = Tile(0),
-            tileSize = 100.dp
+            modifier = Modifier.size(100.dp)
         )
     }
 }
@@ -36,7 +38,7 @@ fun Tile0Light() {
 fun Tile2() {
     GameTile(
         tile = Tile(2),
-        tileSize = 100.dp
+        modifier = Modifier.size(100.dp),
     )
 }
 
@@ -45,7 +47,7 @@ fun Tile2() {
 fun Tile32() {
     GameTile(
         tile = Tile(32),
-        tileSize = 100.dp
+        modifier = Modifier.size(100.dp)
     )
 }
 
@@ -54,6 +56,6 @@ fun Tile32() {
 fun Tile128() {
     GameTile(
         tile = Tile(128),
-        tileSize = 100.dp
+        modifier = Modifier.size(100.dp)
     )
 }
