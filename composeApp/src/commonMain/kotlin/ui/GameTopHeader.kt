@@ -30,7 +30,7 @@ fun GameTopHeader(
     score: Int,
     topScore: Int,
     newGameClick: () -> Unit = {},
-    gameUpdateClick: () -> Unit = {}
+    gameUpdateSwipe: () -> Unit = {}
 ) {
     val colorState = mutableStateOf(Color.Red)
 
@@ -86,7 +86,7 @@ fun GameTopHeader(
                                     Random.nextFloat(),
                                     1f
                                 )
-                                gameUpdateClick()
+                                gameUpdateSwipe()
                             },
                     )
                     GameButton(text = "New Game", onClick = { newGameClick() })

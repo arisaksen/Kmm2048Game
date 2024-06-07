@@ -14,7 +14,7 @@ import ui.GameGrid
 @Composable
 fun GameGridLight() {
     MaterialTheme(colors = LightColorPalette) {
-        GameGrid(customGrid())
+        GameGrid(gridTiles = customGrid())
     }
 }
 
@@ -22,7 +22,7 @@ fun GameGridLight() {
 @Composable
 fun GameGridDark() {
     MaterialTheme(colors = DarkColorPalette) {
-        GameGrid(customGrid())
+        GameGrid(gridTiles = customGrid())
     }
 }
 
