@@ -1,30 +1,40 @@
 package previews
 
 import DarkColorPalette
-import GameGrid
+import LightColorPalette
+import android.content.res.Configuration
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import data.Tile
+import ui.GameGrid
 
 
 @Preview
 @Composable
+fun GameGridLight() {
+    MaterialTheme(colors = LightColorPalette) {
+        GameGrid(customGrid())
+    }
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
 fun GameGridDark() {
-    val gridSize = 4
-    val gridTiles = mutableListOf<List<Tile>>()
+    MaterialTheme(colors = DarkColorPalette) {
+        GameGrid(customGrid())
+    }
+}
+
+fun customGrid(gridSize: Int = 4): MutableList<Tile> {
+    val gridTiles = mutableListOf<Tile>()
     for (col in 1..gridSize) {
-        val rowTiles = mutableListOf<Tile>()
         for (row in 1..gridSize) {
             val randomTileNumber =
                 listOf(0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048).random()
-            rowTiles.add(Tile(randomTileNumber))
+            gridTiles.add(Tile(randomTileNumber))
         }
-        gridTiles.add(rowTiles)
     }
 
-    MaterialTheme(colors = DarkColorPalette) {
-        GameGrid(gridTiles)
-    }
+    return gridTiles
 }

@@ -2,19 +2,13 @@ package ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import data.Tile
 
 @Composable
@@ -26,16 +20,8 @@ fun GameTile(
         shape = RoundedCornerShape(5),
         backgroundColor = getTileColor(tile.num, isSystemInDarkTheme()),
         modifier = modifier
-//            .fillMaxSize()
-//            .padding(vertical = 10.dp)
-//            .clip(RoundedCornerShape(topStart = 10.dp, topEnd = 10.dp))
-//            .background(Color.Red)
-//            .padding(horizontal = 25.dp, vertical = 15.dp)
     ) {
-        Box(
-            contentAlignment = Alignment.Center,
-//            modifier = Modifier.fillMaxSize()
-        ) {
+        Box(contentAlignment = Alignment.Center) {
             if (tile.num > 0) Text(tile.num.toString())
         }
     }
@@ -58,6 +44,6 @@ fun getTileColor(num: Int, isDarkTheme: Boolean): Color {
         4096 -> Color(if (isDarkTheme) 0xff80020a else 0xffcc0000)
         8192 -> Color(if (isDarkTheme) 0xff303f9f else 0xff0099cc)
         16384 -> Color(if (isDarkTheme) 0xff512da8 else 0xff9933cc)
-        else -> Color.Black
+        else -> if (isDarkTheme) Color.Black else Color.White
     }
 }

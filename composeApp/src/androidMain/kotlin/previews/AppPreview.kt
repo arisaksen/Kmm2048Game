@@ -1,9 +1,7 @@
 package previews
 
 import App
-import DarkColorPalette
-import LightColorPalette
-import androidx.compose.material.MaterialTheme
+import android.content.res.Configuration
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -11,7 +9,11 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview
 @Composable
 fun AppAndroidPreview() {
-    MaterialTheme(colors = LightColorPalette) {
-        App()
-    }
+    App()
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun AppAndroidPreviewDark() {
+    App()
 }

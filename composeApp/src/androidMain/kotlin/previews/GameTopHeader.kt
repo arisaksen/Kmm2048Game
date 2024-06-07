@@ -11,17 +11,15 @@ import ui.GameTopHeader
 @Preview
 @Composable
 fun GameTopHeaderDark() {
-
     MaterialTheme(colors = DarkColorPalette) {
-        GameTopHeader(text = "ABC", onClick = { println("click") })
+        GameTopHeader(100, 200)
     }
 }
 
 @Preview
 @Composable
 fun GameTopHeaderLight() {
-
     MaterialTheme(colors = LightColorPalette) {
-        GameTopHeader(text = "ABC", onClick = { println("click") })
+        GameTopHeader(300, 400)
     }
 }

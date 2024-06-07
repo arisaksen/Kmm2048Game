@@ -1,9 +1,8 @@
 package data
 
-import androidx.compose.ui.graphics.Color
-
-data class Tile(val num: Int, val id: Int) {
+data class Tile(var num: Int, val id: Int) {
     constructor(num: Int) : this(num, tileIdCounter++)
+
     operator fun times(operand: Int): Tile = Tile(num * operand)
 
     companion object {
@@ -12,6 +11,3 @@ data class Tile(val num: Int, val id: Int) {
         private var tileIdCounter = 0
     }
 }
-
-enum class Direction { NORTH, SOUTH, EAST, WEST }
-
